@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "",
-    "tsc:w": "tsc -w"
+    "start": "concurrently \"npm run live\" \"npm run tsc\"",
+    "tsc": "tsc -w",
+    "live": "live-server --host=localhost"
   },
   "author": "gy",
   "license": "ISC",

@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: "main",
-    template: "main Component - {{title}}"
+    selector: 'content',
+    template: "<div>{{message}}</div>"
 })
 
-export class MainComponent{
+export class JobsComponent{
     
-    title: string = "In the Middle";
+    message: string = "hey, i am content";
+    click(){
+        alert('jobs clicked!');
+    }
     
 }
