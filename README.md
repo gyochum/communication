@@ -1,0 +1,1 @@
+For DI to work, use the current tsconfig.json file...seriously!

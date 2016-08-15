@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from '../services/main.service';
 
 @Component({
-    selector: "main",      
+    selector: "main", 
     templateUrl: "app/views/home/index.html"
 })
 
@@ -10,12 +10,12 @@ export class MainComponent implements OnInit{
     
     title: string = "All Alone";        
     
-    constructor(private svc:MainService){
+    constructor(public service: MainService){
         
     }   
     
     ngOnInit() {
-        this.title = this.svc.getTitle();
+        this.title = this.service.getTitle();
     }
     
 }
