@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MainService } from '../services/main.service';
 
 @Component({
@@ -6,16 +6,21 @@ import { MainService } from '../services/main.service';
     templateUrl: "app/views/home/index.html"
 })
 
-export class MainComponent implements OnInit{
+export class MainComponent implements OnInit, OnDestroy{
     
-    title: string = "All Alone";        
+    title: string = "All Alone";       
+    private subscription: any; 
     
-    constructor(public service: MainService){
-        
-    }   
+    constructor(public service: MainService){}   
     
     ngOnInit() {
-        this.title = this.service.getTitle();
+        this.subscription = this.service.searcher.subscribe(s => {
+           this.title = s; 
+        });
+    }
+    
+    ngOnDestroy(){
+        this.subscription.unsubscribe();
     }
     
 }

@@ -16,7 +16,7 @@ export class SearchComponent{
     heading: string;
     
     click(){                
-        this.service.setTitle(this.heading);
+        this.service.search(this.heading);
     }
         
 }
